@@ -61,7 +61,24 @@ def get_number_of_games_played(num_teams):
 -- need to handle errors
 """
 def get_team_wins(team_names, games_played):
-    pass
+    
+    teams_win = []
+    
+    for name in team_names:
+        while True:
+            wins = int(input(f"How many time did team {name} win: "))
+
+            if wins > games_played:
+                print(f"Erm, no, the maximum number of games played can be {games_played}")
+            elif wins < 0:
+                print("Nope, can't be less than 0")
+            else:
+                break
+
+        teams_win.append((name, wins))
+
+    return teams_win
+
 
 
 num_teams = get_number_of_teams()
