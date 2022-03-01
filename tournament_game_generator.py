@@ -45,7 +45,16 @@ def get_team_names(num_teams):
 """
 
 def get_number_of_games_played(num_teams):
-    pass
+
+    while True:
+        played = int(input('Enter the number of games each team plays: '))
+
+        if played >= num_teams - 1:
+            break
+
+        print(f'It is a competition, each team needs to play at least {num_teams - 1} times')
+
+    return played
 
 """
 - how many wins did [n] team have
