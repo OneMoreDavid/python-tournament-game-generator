@@ -132,7 +132,7 @@ now I need a [FOR] loop to basically do:
 for [each_game] of [how_many_games]:
     [home_team] = [LOWEST_score]
     [away_team] = [HIGHEST_score] 
-    update my current empty list [paired_games]
+    update my current empty list [paired_games] >>> paired_games.append([home_team, away_team])
 
 and to output this to the screen using another [FOR] loop as unknown number of teams at this stage
 
