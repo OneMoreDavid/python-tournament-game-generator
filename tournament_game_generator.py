@@ -6,14 +6,14 @@
 def get_number_of_teams():
        
     while True:
-        num_teams = int(input('Enter the number of teams: '))
+        num_of_teams = int(input('Enter the number of teams: '))
 
-        if num_teams >= 2:
+        if num_of_teams >= 2:
             break
 
         print('It is a competition, the minimum number is clearly 2')
 
-    return num_teams
+    return num_of_teams
 
 
 """
@@ -25,16 +25,27 @@ def get_team_names(num_teams):
 
     teams = []
 
-    for num in num_teams:
+    for num in range(num_teams):                                        # I was getting an error here, so made this a range
+        """
+        line 28, in get_team_names 
+            for num in num_teams:
+        TypeError: 'int' object is not iterable
+        """
         while True:
             team_name = input(f"What is the name of team {num + 1}: ")
 
-            if team_name < 2:
+            if len(team_name) < 2:                                           # error, so I will try to makethis a length argument
+                """
+                line 37, in get_team_names
+                    if team_name < 2:
+                TypeError: '<' not supported between instances of 'str' and 'int'
+                """
                 print("Team names need at least 2x char!")
             else:
                 break
 
         teams.append(team_name)
+
 
     return teams
 
@@ -79,13 +90,6 @@ def get_team_wins(team_names, games_played):
 
     return teams_win
 
-
-
-num_teams = get_number_of_teams()
-team_names = get_team_names(num_teams)
-games_played = get_number_of_games_played(num_teams)
-team_wins = get_team_wins(team_names, games_played)
-
 '''
 the team with the fewer wins needs to play at home
 
@@ -93,4 +97,22 @@ the team with fewer wins plays team with most wins
 -- team with second fewest wins plays team with second most wins and so on
 ''' 
 
+num_teams = get_number_of_teams()
+team_names = get_team_names(num_teams)
+games_played = get_number_of_games_played(num_teams)
+team_wins = get_team_wins(team_names, games_played)
+
+"""
+Dry run - before generator was added: 
+
+Enter the number of teams: 2
+What is the name of team 1: AA
+What is the name of team 2: BB
+Enter the number of games each team plays: 2
+How many time did team AA win: 2
+How many time did team BB win: 0
+Generating the games to be played in the first round of the tournament...
+"""
+
 print("Generating the games to be played in the first round of the tournament...")
+
