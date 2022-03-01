@@ -23,8 +23,21 @@ def get_number_of_teams():
 
 def get_team_names(num_teams):
 
+    teams = []
 
-    pass
+    for num in num_teams:
+        while True:
+            team_name = input(f"What is the name of team {num + 1}: ")
+
+            if team_name < 2:
+                print("Team names need at least 2x char!")
+            else:
+                break
+
+        teams.append(team_name)
+
+    return teams
+
 
 """
 - how many games did EACH team play? 
