@@ -34,7 +34,7 @@ def get_team_names(num_teams):
         while True:
             team_name = input(f"What is the name of team {num + 1}: ")
 
-            if len(team_name) < 2:                                           # error, so I will try to makethis a length argument
+            if len(team_name) < 2:                                     # error, so I will try to makethis a length argument
                 """
                 line 37, in get_team_names
                     if team_name < 2:
@@ -103,7 +103,7 @@ games_played = get_number_of_games_played(num_teams)
 team_wins = get_team_wins(team_names, games_played)
 
 """
-Dry run - before generator was added: 
+>>> Dry run - before generator was added: 
 
 Enter the number of teams: 2
 What is the name of team 1: AA
@@ -115,4 +115,14 @@ Generating the games to be played in the first round of the tournament...
 """
 
 print("Generating the games to be played in the first round of the tournament...")
+print(team_wins)                                                       # just to see >> [('AA', 2), ('BB', 0)]
+
+def sort_the_teams(sort_by):                                          # I know this should be higher in program, but for now..... 
+    return sort_by[1]
+
+sorted_teams_by_wins = sorted(team_wins, key=sort_the_teams)
+
+paired_games = []
+
+how_many_games = len(sorted_teams_by_wins)//2
 
