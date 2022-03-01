@@ -114,7 +114,7 @@ How many time did team BB win: 0
 Generating the games to be played in the first round of the tournament...
 """
 
-print("Generating the games to be played in the first round of the tournament...")
+
 print(team_wins)                                                       # just to see >> [('AA', 2), ('BB', 0)]
 
 def sort_the_teams(sort_by):                                          # I know this should be higher in program, but for now..... 
@@ -140,8 +140,60 @@ for [gameX] in [paired_games]:       # my list
     home_team, away_team = gameX
     print(f"Home: {home_team} VS Away: {away_team}")
 
-
-for
-
 >>> where score = number of wins
+"""
+
+for each_game in range(how_many_games):
+    home_team = sorted_teams_by_wins[each_game][0]
+    away_team = sorted_teams_by_wins[num_teams - 1 - each_game][0]
+    paired_games.append([home_team, away_team])
+
+print(paired_games)
+"""
+>>> OUTPUT just to see >>> 
+
+Enter the number of teams: 3
+What is the name of team 1: aa
+What is the name of team 2: bb
+What is the name of team 3: cc
+Enter the number of games each team plays: 2
+How many time did team aa win: 1
+How many time did team bb win: 2
+How many time did team cc win: 1
+Generating the games to be played in the first round of the tournament...
+[('aa', 1), ('bb', 2), ('cc', 1)]
+[['aa', 'bb']]
+
+ONE THING I NOTICED IS THAT MY CODE IS ALLOWING UNEVEN NUMBER OF PLAYERS< THEREFORE THE FINAL TOURNAMENT MAY HAVE SOME TEAMS WITHOUT A CHALLENGER??
+--- need to check notes to see if this was something I should error against?? 
+"""
+print("Generating the games to be played in the first round of the tournament...")
+for gameX in paired_games:
+    home_team, away_team = gameX
+    print(f"HOME: {home_team} VS AWAY: {away_team}")
+
+"""
+>>> OUTPUT >>>
+
+Enter the number of teams: 4
+What is the name of team 1: team1
+What is the name of team 2: team2
+What is the name of team 3: team3
+What is the name of team 4: team4
+Enter the number of games each team plays: 3
+How many time did team team1 win: 4
+Erm, no, the maximum number of games played can be 3
+How many time did team team1 win: 3
+How many time did team team2 win: 2
+How many time did team team3 win: 2
+How many time did team team4 win: 1
+[('team1', 3), ('team2', 2), ('team3', 2), ('team4', 1)]
+[['team4', 'team1'], ['team2', 'team3']]
+Generating the games to be played in the first round of the tournament...
+HOME: team4 VS AWAY: team1
+HOME: team2 VS AWAY: team3
+
+-===-===-===-===-
+
+I THINK THIS IS WORKING FINE - possibly need to check error handling
 """
