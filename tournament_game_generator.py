@@ -126,3 +126,22 @@ paired_games = []
 
 how_many_games = len(sorted_teams_by_wins)//2
 
+"""
+now I need a [FOR] loop to basically do: 
+
+for [each_game] of [how_many_games]:
+    [home_team] = [LOWEST_score]
+    [away_team] = [HIGHEST_score] 
+    update my current empty list [paired_games]
+
+and to output this to the screen using another [FOR] loop as unknown number of teams at this stage
+
+for [gameX] in [paired_games]:       # my list
+    home_team, away_team = gameX
+    print(f"Home: {home_team} VS Away: {away_team}")
+
+
+for
+
+>>> where score = number of wins
+"""
